@@ -10,7 +10,7 @@ const formData = {
     pin: document.getElementById("pin"),
     state: document.getElementById("state"),
     specialization: document.getElementsByClassName('specialization'),
-    password: document.getElementById("pasord")
+    password: document.getElementById("password")
 
 }
 submitButton = document.getElementById("btn-sub")
