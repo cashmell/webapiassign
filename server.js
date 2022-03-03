@@ -4,11 +4,9 @@ var http = require('http');
 
 
 var server = http.createServer(function (req, res) {
-    const headers = {
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json'
-    };
 
+    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Access-Control-Allow-Origin', '*')
     if (req.url == '/form' && req.method == "POST") {
         let data = '';
         var obj = {}
@@ -18,12 +16,7 @@ var server = http.createServer(function (req, res) {
         })
 
         req.on('end', () => {
-
-
-            res.writeHead(200, headers);
-            res.write(data);
-            // res.end();
-
+            res.end(data);
         })
 
 
