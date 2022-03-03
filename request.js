@@ -61,7 +61,7 @@ submitButton.addEventListener("click", function (event) {
 
     function handleResponse(responseObject) {
         console.log(responseObject)
-        var diplayhtml = document.getElementsByClassName("body2")
-        document.body.appendChild(responseObject, diplayhtml)
+        var container = document.getElementsByClassName("container")
+        container.innerHtml = `<div> My name is ${responseObject["fname"]}</div>`
     }
 })
