@@ -1,0 +1,41 @@
+*{box-sizing:  border-box;}
+
+h1{
+    font-family: Arial;
+    font-size: medium;
+    font-style: normal;
+    font-weight: bold;
+    color: rgb(236, 25, 25);
+    text-align: center;
+    text-decoration: underline;
+}
+label{
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+    text-align: center;
+}
+
+.container{
+    border-radius: 100px;
+    border: 10px;
+    background-color:#d1d1d1;
+    padding: 200px;
+    text-align: center;
+}
+.col-10{
+    float: left;
+    width:90%;
+    margin-top: 6px;
+}
+
+.row:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+@media screen and (max-width: 600px) {
+    .col-10{
+        width: 100%;
+        margin-top: 0;
+    }
+}
