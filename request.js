@@ -30,26 +30,24 @@ submitButton.addEventListener("click", function (event) {
         state:${formData.state.value},
         password:${formData.password.value},
         gender:${formData.gender.value},
-        specialiazation:${formData.specialization.value}
+        specialization:${formData.specialization.value}
     }`
     req.open("POST", "http://localhost:8080/form", true)
     console.log(reqData)
     req.setRequestHeader("Content-Type", "application/json")
 
-    req.responseType = 'application/json';
+    req.responseType = 'text/html';
     req.onload = function () {
         var status = req.status;
 
 
         if (status === 200) {
-            let respObj = null
-            try {
+            var respObj = null
 
-                respObj = req.responseText
-                handleResponse(respObj)
-            } catch (err) {
-                console.log("Could not parse json")
-            }
+
+            respObj = req.responseText
+            handleResponse(respObj)
+
 
         } else {
             console.log("An error occurred ")
@@ -61,7 +59,11 @@ submitButton.addEventListener("click", function (event) {
 
     function handleResponse(responseObject) {
         console.log(responseObject)
-        var container = document.getElementsByClassName("container")
-        container.innerHtml = `<div> My name is ${responseObject["fname"]}</div>`
+        var body = document.getElementById("body")
+        var parser = new DOMParser()
+        var doc = parser.parseFromString(responseObject, "text/html")
+        body.innerHTML = ""
+        body.appendChild(doc)
+
     }
 })
