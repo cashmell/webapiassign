@@ -89,7 +89,7 @@ var server = http.createServer(function (req, res) {
 
 
         // set response header
-
+        res.on("error", (err) => console.log(err))
 
         // set response content    
 
