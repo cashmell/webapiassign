@@ -20,50 +20,57 @@ submitButton.addEventListener("click", function (event) {
     event.preventDefault(); //
     var req = new XMLHttpRequest();
 
-    const reqData = `{
-        fname:${formData.fname.value},
-        lname:${formData.lname.value},
-        email:${formData.email.value},
-        mobile:${formData.mobile.value},
-        dob:${formData.dob.value},
-        address:${formData.address.value},
-        city:${formData.city.value},
-        pin:${formData.pin.value},
-        state:${formData.state.value},
-        password:${formData.password.value},
-        gender:${formData.gender.value},
-        specialization:${formData.specialization}
-    }`;
-    req.open("POST", "http://localhost:8080/form", true);
-    console.log(reqData);
-    req.setRequestHeader("Content-Type", "application/json");
-
-    req.responseType = 'text/html';
-    req.onload = function () {
-        var status = req.status;
-
-
-        if (status === 200) {
-            var respObj = null;
-
-
-            respObj = req.responseText;
-            handleResponse(respObj);
-
-
-        } else {
-            console.log("An error occurred ");
-        }
+    const reqData = {
+        fname: formData.fname.value,
+        lname: formData.lname.value,
+        email: formData.email.value,
+        mobile: formData.mobile.value,
+        dob: formData.dob.value,
+        address: formData.address.value,
+        city: formData.city.value,
+        pin: formData.pin.value,
+        state: formData.state.value,
+        password: formData.password.value,
+        gender: formData.gender.value,
+        specialization: formData.specialization.value
     };
-    req.send(reqData);
+
+    req.onload = function () {
+        if (req.readyState === req.DONE) {
+            var status = req.status;
+
+            if (status === 200) {
+                var respObj = null;
+
+
+                respObj = req.responseText;
+                console.log(respObj);
+
+                handleResponse(respObj);
+
+
+            }
+
+        }
+
+    };
+
+
+    req.onerror = (err) => console.error(err)
+    req.open("POST", "http://127.0.0.1:8080/form", true);
+
+    var json = JSON.stringify(reqData)
+    req.send(json);
 })
 
 function handleResponse(responseObject) {
-    console.log(responseObject)
-    var body = document.getElementById("body")
-    var parser = new DOMParser()
-    var doc = parser.parseFromString(responseObject, "text/html")
+    var body = document.querySelector("body")
+    console.log(body)
+
     body.innerHTML = ""
-    body.appendChild(doc)
+    // var parser = new DOMParser()
+    // var doc = parser.parseFromString(responseObject, "text/html")
+
+    body.innerHTML = responseObject
 
 }

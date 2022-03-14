@@ -5,8 +5,12 @@ var http = require('http');
 
 var server = http.createServer(function (req, res) {
 
-    res.setHeader('Content-Type', 'text/html');
     res.setHeader('Access-Control-Allow-Origin', '*')
+    res.setHeader("Access-Control-Allow-Methods", "POST,OPTIONS")
+    res.setHeader("Access-Control-Allow-Headers", "Accept, Content-Type")
+    res.setHeader('Content-Type', 'text/html');
+    res.setHeader('Accept', '*/*')
+
     if (req.url == '/form' && req.method == "POST") {
         let data = '';
         var obj = {}
@@ -89,7 +93,7 @@ var server = http.createServer(function (req, res) {
 
 
         // set response header
-        res.on("error", (err) => console.log(err))
+        res.on("error", (err) => console.log(`Server error:${err}`))
 
         // set response content    
 
@@ -104,4 +108,5 @@ var server = http.createServer(function (req, res) {
 });
 
 
-server.listen(8080, () => console.log('server at port 8080 is running..')); //3 - listen for any incoming requests
+
+server.listen(8080, "localhost", () => console.log(`server is running - ${server.address().address}`)); //3 - listen for any incoming requests
