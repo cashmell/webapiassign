@@ -2,12 +2,11 @@
 
 h1{
     font-family: Arial;
-    font-size: medium;
+    font-size: 30;
     font-style: normal;
     font-weight: bold;
-    color: rgb(236, 25, 25);
+    color: rgb(14, 43, 209);
     text-align: center;
-    text-decoration: underline;
 }
 label{
     padding: 12px 12px 12px 0;
@@ -17,9 +16,12 @@ label{
 
 .container{
     border-radius: 100px;
-    border: 10px;
-    background-color:#d1d1d1;
-    padding: 200px;
+    border: 5px solid pink;
+    background-color:#88ccf3;
+    padding: 80px;
+    width: 700px;
+    height: 1600px;
+    margin: auto;
     text-align: center;
 }
 .col-10{

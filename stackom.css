@@ -24,19 +24,18 @@ input[type=radio],input[type=checkbox]{
 }
 h1{
     font-family: Arial;
-    font-size: medium;
+    font-size: 30;
     font-style: normal;
     font-weight: bold;
-    color: rgb(236, 25, 25);
+    color: rgb(5, 58, 170);
     text-align: center;
-    text-decoration: underline;
 }
 label{
     padding: 12px 12px 12px 0;
     display: inline-block;
     text-align: center;
 }
-input[type=submit] {
+button[type=submit] {
     background-color: #200f7e;
     color: white;
     padding: 12px 20px;
@@ -45,14 +44,17 @@ input[type=submit] {
     cursor: pointer;
     float:left;
 }
-input[type=submit]:hover {
+button[type=submit]:hover {
 background-color: #36b9e0;
 }
 .container{
     border-radius: 100px;
-    border: 10px;
-    background-color:#d1d1d1;
-    padding: 200px;
+    border: 5px solid pink;
+    background-color:#a9d6f0;
+    padding: 80px;
+    width: 700px;
+    height: 1600px;
+    margin: auto;
     text-align: center;
 }
 .col-10{
@@ -71,7 +73,7 @@ background-color: #36b9e0;
     clear: both;
 }
 @media screen and (max-width: 600px) {
-    .col-10,.col-90,input[type=submit]{
+    .col-10,.col-90,button[type=submit]{
         width: 100%;
         margin-top: 0;
     }

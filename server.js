@@ -23,9 +23,10 @@ var server = http.createServer(function (req, res) {
 
 
             obj = JSON.parse(data)
-            var myHtml = `<h1> REGISTRATION DETAILS </h1>
+            var myHtml = `
 
         <div class="container">
+        <h1> REGISTRATION DETAILS </h1>
             <div class="row">
                 <div class="col-10">
                     <label for="fname">First Name: ${obj["fname"]}</label>
