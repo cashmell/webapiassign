@@ -109,4 +109,4 @@ var server = http.createServer(function (req, res) {
 
 
 
-server.listen(8080, "localhost", () => console.log(`server is running - ${server.address().address}`)); //3 - listen for any incoming requests
+server.listen(8080, "127.0.0.1", () => console.log(`server is running - ${server.address().address}`)); //3 - listen for any incoming requests
